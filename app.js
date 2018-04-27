@@ -1,8 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
-const userRoute = require('./routes/user');
-const wikiRoute = require('./routes/wiki');
 const app = express();
+const userRoute = require('./routes/users');
+const wikiRoute = require('./routes/wiki');
 const models = require('./models');
 const PORT = 1337;
 // db.authenticate().
@@ -21,7 +21,11 @@ const init = async () => {
   }
 };
 
+
 app.use('/wiki', wikiRoute);
-app.use('/user', userRoute);
+app.use('/users', userRoute);
+app.get('/', (req, res) => {
+  res.redirect('/wiki');
+})
 
 init();

@@ -30,6 +30,7 @@ const User = db.define('users', {
     allowNull: false
   },
 });
+
 module.exports = {
   db,
   Page,
