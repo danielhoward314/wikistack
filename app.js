@@ -12,7 +12,7 @@ const PORT = 1337;
 
 const init = async () => {
   try {
-    await models.db.sync({force: true});
+    await models.db.sync(/*{force: true}*/);
     app.listen(PORT, () => {
     console.log(`App listening in port ${PORT}`);
   });
